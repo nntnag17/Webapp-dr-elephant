@@ -1,0 +1,69 @@
+<div class="nav-extension"></div>
+
+
+
+<div class="container" role="main">
+
+    <div class="breadcrumb2 flat">
+      {{#link-to "dashboard"}}<i class="glyphicon glyphicon-home"></i>{{/link-to}}
+      {{#link-to "workflow" (query-params workflowid=model.id) class="active"}}<label>Workflow</label>{{/link-to}}
+    </div>
+
+<div class="shadow details-container box">
+        <div class="ribbon-general ribbon-{{getColorForSeverity model.severity}}" ><span>{{model.severity}}</span></div>
+
+        <h4>{{model.id}}</h4>
+        <hr class="horizontal-line">
+
+        <table class="info borderless">
+            <tbody>
+            <tr>
+                <td>User</td>
+                <td>{{model.username}}</td>
+            </tr>
+            <tr>
+                <td>Flow execution:</td>
+                <td><a href="{{model.id}}">{{model.id}}</a></td>
+            </tr>
+            <tr>
+                <td>Flow definition:</td>
+                <td><a href={{model.flowdefid}}>{{model.flowdefid}}</a></td>
+            </tr>
+            <tr>
+                <td>Start time:</td>
+                <td>{{model.starttime}}</td>
+            </tr>
+            <tr>
+                <td>End time:</td>
+                <td>{{model.finishtime}}</td>
+            </tr>
+
+            </tbody>
+        </table>
+
+        <table class="borderless info">
+            <tbody>
+            <tr>
+                <td><a href="/newflowhistory?flow-def-id={{urlEncode model.flowdefid}}&select-graph-type=heuristics"><span class="glyphicon glyphicon-stats"> FlowHistory</span></a></td>
+            </tr>
+
+            <tr>
+                <td>{{jobs-severity flow=model}}</td>
+            </tr>
+            <tr>
+                <td>{{aggregated-metrics application=model}}</td>
+                <td></td>
+            </tr>
+
+            </tbody>
+        </table>
+</div>
+
+  <div class="shadow summary-list-container">
+  <div  class="summary-list-header">Jobs</div>
+
+{{job-list jobs=model.jobssummaries}}
+      </div>
+
+
+    </div>

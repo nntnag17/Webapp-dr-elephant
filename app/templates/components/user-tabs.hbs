@@ -1,0 +1,19 @@
+<ul id="myTab" class="nav nav-tabs" role="tablist">
+
+    <li id="all" class="active"><a class="single-tab" role="tab"
+                                   data-toggle="tab" {{action 'setTab' null}}><label>All</label></a></li>
+
+  {{#each usernames as |username|}}
+      <li><a role="tab" class="single-tab" {{action 'setTab' username}}
+             data-toggle="tab" id="{{username}}">{{single-tab name=username deleteTab="deleteTab"}}</a></li>
+  {{/each}}
+
+    <!--<li style="height: 40px;;"><input id = "primary-search" type="text" class="form-control" style="width: 100px; height: 30px; margin-top: 5px;" ></li>-->
+  {{!--
+    <li id="last"><a role="tab" class="single-tab" {{action 'addTab'}}><span
+            class="glyphicon glyphicon-plus"></span></a></li>
+    --}}
+
+<li class="input-user-li">{{input id="user-input" action='addTab' type="hidden" placeholder="Add user" class="input-user" valueBinding="newuser"}}<button {{action 'showInput'}} class="glyphicon glyphicon-plus" style="height: 100%; border-left: 1px solid grey; border: none; color: #0084BF; width: 30px; margin-right: 5px; margin-left: 5px; border-radius: 3px; background: white;"></button></li>
+
+</ul>

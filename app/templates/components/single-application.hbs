@@ -1,0 +1,37 @@
+<table class="app-summary-table box shadow">
+    <tr>
+        <td class="severity-side-blob-generic severity-side-blob-{{getColorForSeverity application.severity}}">
+        </td>
+        <td>
+          {{#link-to "app" (query-params applicationid=application.id) class="list-group-item list-group-item-control"}}
+
+              <table class="app-header">
+                  <tr>
+                      <td class="heading">
+                        {{application.id}}
+                      </td>
+                      <td class="user"><span class="glyphicon glyphicon-user"></span>  {{application.username}}</td>
+                  </tr>
+              </table>
+
+              <table class="borderless">
+                  <tbody>
+                  <tr>
+                      <td class="date-header">
+                        {{getDate application.finishtime}}
+                      </td>
+                  </tr>
+
+                  <tr>
+                      <td class="heuristics-block">{{heuristics-summary heuristics=application.heuristicsummary}}</td>
+                  </tr>
+
+                  <tr>
+                      <td class="aggregated-metrics-block">{{aggregated-metrics application=application}}</td>
+                  </tr>
+                  </tbody>
+              </table>
+          {{/link-to}}
+        </td>
+    </tr>
+</table>

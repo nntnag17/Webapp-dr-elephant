@@ -1,0 +1,21 @@
+<div class="input-group" style="height: 50px; ">
+    <div class="input-group-btn search-panel">
+        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+            <span id="search_concept">Workflow</span> <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu" role="menu">
+            <li><a href="#workflow" {{action 'selected' "Workflow"}}>Workflow</a></li>
+            <li><a href="#application" {{action 'selected' "Application"}}>Application</a></li>
+            <li><a href="#job" {{action 'selected' "Job"}}>Job</a></li>
+            <li class="divider"></li>
+            <li><a href="/search" {{action 'selected' "Advanced"}}>Advanced</a></li>
+        </ul>
+    </div>
+    <input type="hidden" name="search_param" value="all" id="search_param">
+  <div style="margin-top: 8px;">
+    {{input  id = "primary-search" type="text" class="form-control" name="x" placeholder="Search"  action='search'}}
+    </div>
+                <span class="input-group-btn">
+                    <button class="btn btn-default" type="button" {{action 'search'}}><span class="glyphicon glyphicon-search"></span></button>
+                </span>
+</div>

@@ -1,0 +1,76 @@
+<div class="shadow details-container box">
+<form id="search-form" {{action 'search' on="submit"}}>
+
+    <table class="search-table">
+        <tr>
+           <td><label>User</label>{{input type="text" class="form-control" id="form-username" name="username" placeholder="username" valueBinding="username"}}</td>
+            <td><label>Queue</label>{{input type="text" class="form-control" id="form-queue-name" name="queue-name" placeholder="Queue" valueBinding="queue"}}</td>
+            <td><div class="checkbox">
+                <label>{{input type="checkbox" id="form-job-type-enable" name="filter-job-type"}} Job Type</label>
+            </div>
+                <div class="form-group">
+                    <select class="form-control" id="form-job-type" name="job-type">
+                      {{#each searchOptions.jobcategory as |jobcategory|}}
+                        <optgroup label={{jobcategory.name}}>
+                            {{#each jobcategory.jobtypes as |jobtype|}}
+                            <option value={{jobtype.name}}>{{jobtype.name}}</option>
+                            {{/each}}
+                        </optgroup>
+                        {{/each}}
+                    </select>
+                </div></td>
+        </tr>
+        <tr>
+            <td>
+                <div class="checkbox">
+                    <label><input type="checkbox" id="form-severity-enable" name="filter-severity" value=""> Severity</label>
+                </div>
+                <div class="form-group" >
+                    <select class="form-control" id="form-severity" name="severity">
+                      {{#each searchOptions.severities as |severity|}}
+                        <option value={{severity.value}}>{{severity.name}}</option>
+                      {{/each}}
+                    </select>
+                </div>
+                <div class="form-group">
+                    <select class="form-control" id="form-analysis" name="analysis">
+                        <option value="">All Analysis</option>
+                      {{#each searchOptions.jobcategory as |jobcategory|}}
+                          <optgroup label={{jobcategory.name}}>
+                            {{#each jobcategory.heuristics as |heuristic|}}
+                                <option value={{heuristic.name}}>{{heuristic.name}}</option>
+                            {{/each}}
+                          </optgroup>
+                      {{/each}}
+                    </select>
+                </div>
+            </td>
+            <td>
+                <div class="checkbox">
+                    <label><input type="checkbox" id="form-datetime-enable" name="datetime-enable" value=""> Job Finish Date</label>
+                </div>
+                <div class="form-group">
+                    <input type="text" class="form-control" id="form-finished-time-begin-date" name="finished-time-begin-date" placeholder="From: mm/dd/yyyy">
+
+                    <input type="hidden" id="form-finished-time-begin" name="finished-time-begin" value="" />
+                </div>
+                <div class="form-group">
+                    <input type="text" class="form-control" id="form-finished-time-end-date" name="finished-time-end-date" placeholder="To: mm/dd/yyyy">
+                    <input type="hidden" id="form-finished-time-end" name="finished-time-end" value="" />
+                </div>
+            </td>
+            <td>
+
+                <button class="btn btn-default" id="submit-button">Search</button>
+            </td>
+        </tr>
+          <tr>
+
+          </tr>
+    </table>
+    <!--Job Type filter-->
+<div>
+
+</div>
+    </form>
+</div>

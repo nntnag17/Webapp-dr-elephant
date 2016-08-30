@@ -1,0 +1,115 @@
+<div class="nav-extension"></div>
+
+<div class="container" role="main">
+
+    <div class="breadcrumb2 flat">
+        {{#link-to "dashboard"}}<i class="glyphicon glyphicon-home"></i>{{/link-to}}
+        {{#if (notEmpty model.flowexecid)}}
+        {{#link-to "workflow" (query-params workflowid=model.flowexecid)}}Workflow{{/link-to}}
+        {{/if}}
+         {{#if (notEmpty model.jobexecid)}}
+        {{#link-to "job" (query-params jobid=model.jobexecid)}}Job{{/link-to}}
+        {{/if}}
+        {{#link-to "app" (query-params jobid=model.id) class="active" }}<label>Application</label>{{/link-to}}
+    </div>
+
+
+    <div class="shadow details-container box">
+        <div class="ribbon-general ribbon-{{getColorForSeverity model.severity}}" ><span>{{model.severity}}</span></div>
+        <h4>{{model.id}}</h4>
+        <hr>
+        <table class="info borderless">
+
+
+
+            <tbody>
+            <tr>
+                <td>username:</td>
+                <td>{{model.username}}</td>
+            </tr>
+            <tr>
+                <td>jobtype</td>
+                <td>{{model.jobtype}}</td>
+            </tr>
+
+            {{#if (notEmpty model.mapreducejobname)}}
+            <tr>
+                <td>jobname </td>
+                <td>{{model.mapreducejobname}}</td>
+            </tr>
+            {{/if}}
+            <tr>
+                <td>jobtracker: </td>
+                <td><a href="{{model.jobtracker}}">{{model.jobtracker}}</a></td>
+            </tr>
+            {{#if (notEmpty model.jobexecid)}}
+            <tr>
+                <td>jobexecution: </td>
+                <td><a href="{{model.jobexecid}}">{{model.jobexecid}}</a></td>
+            </tr>
+            {{/if}}
+            {{#if (notEmpty model.jobdefid)}}
+            <tr>
+                <td>jobdefinition: </td>
+                <td><a href="{{model.jobdefid}}">{{model.jobdefid}}</a></td>
+            </tr>
+            {{/if}}
+            {{#if (notEmpty model.flowexecid)}}
+            <tr>
+                <td>flowexecution: </td>
+                <td><a href="{{model.flowexecid}}">{{model.flowexecid}}</a></td>
+            </tr>
+            {{/if}}
+            {{#if (notEmpty model.flowdefid)}}
+            <tr>
+                <td>flowdefinition: </td>
+                <td><a href="{{model.flowdefid}}">{{model.flowdefid}}</a></td>
+            </tr>
+            {{/if}}
+            {{!--
+            {{#if (notEmpty model.jobdefid)}}
+            <tr>
+                <td><a href="/flowhistory?flow-def-id=@helper.urlEncode(result.flowDefId)&select-graph-type=heuristics"><span class="glyphicon glyphicon-stats"> JobHistory</span></a></td>
+            </tr>
+            {{/if}}
+            {{#if (notEmpty model.flowdefid)}}
+            <tr>
+                <td><a href="/flowhistory?flow-def-id=@helper.urlEncode(result.flowDefId)&select-graph-type=heuristics"><span class="glyphicon glyphicon-stats"> FlowHistory</span></a></td>
+            </tr>
+            {{/if}}
+            --}}
+            </tbody>
+        </table>
+        <br/>
+        <table class="info borderless">
+            <tbody>
+
+            <tr>
+                <td>
+                  {{heuristics-summary heuristics=model.yarnappheuristicresults}}
+                </td>
+            </tr>
+            <tr>
+                <td>
+                  {{aggregated-metrics application=model}}
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+
+
+
+
+    <!--<div class="shadow summary-list-container">-->
+        <!--<div  class="summary-list-header">Heuristic Details</div>-->
+      {{heuristic-details-list heuristic-details = model.yarnappheuristicresults}}
+
+<!--</div>-->
+
+</div>
+
+
+
+

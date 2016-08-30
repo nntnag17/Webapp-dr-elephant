@@ -1,0 +1,134 @@
+<div class="nav-extension"></div>
+
+<div class="container" role="main">
+
+    <div class="shadow details-container box">
+    <form id="search-form" {{action 'search' on="submit"}}>
+
+        <table class="search-table">
+            <tr>
+                <td><label>User</label>{{input type="text" class="form-control" id="form-username" name="username" placeholder="username" valueBinding=username}}</td>
+                <td><label>Queue</label>{{input type="text" class="form-control" id="form-queue-name" name="queueName" placeholder="Queue" valueBinding=queueName}}</td>
+                <td><div class="checkbox">
+
+                  <label>{{input type="checkbox" name="isAdmin" checked=isJobTypeChecked}} Job Type</label>
+                </div>
+                    <div class="form-group">
+                        <select class="form-control" id="form-job-type" name="job-type" onChange={{action 'selectJobType' value="target.value"}}>
+                          {{#each model.searchOptions.jobcategory as |jobcategory|}}
+                              <optgroup label={{jobcategory.name}}>
+                                {{#each jobcategory.jobtypes as |jobtype|}}
+                                    <option value={{jobtype.name}} selected={{eq jobtype.name jobType}}>{{jobtype.name}}</option>
+                                {{/each}}
+                              </optgroup>
+                          {{/each}}
+                        </select>
+                    </div></td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="checkbox">
+                        <label>{{input type="checkbox" name="isSeverityChecked" checked=isSeverityChecked}} Severity</label>
+                    </div>
+                    <div class="form-group" >
+                        <select class="form-control" id="form-severity" name="severity" onChange={{action 'selectSeverity' value="target.value"}}>
+                          {{#each model.searchOptions.severities as |severityVal|}}
+                              <option value={{severityVal.value}} selected={{eq severityVal.name severity}}>{{severityVal.name}}</option>
+                          {{/each}}
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <select class="form-control" id="form-analysis" name="analysis" onChange={{action 'selectHeuristic' value="target.value"}}>
+                            <option value="">All Analysis</option>
+                          {{#each model.searchOptions.jobcategory as |jobcategory|}}
+                              <optgroup label={{jobcategory.name}}>
+                                {{#each jobcategory.heuristics as |heuristic|}}
+                                    <option value={{heuristic.name}} selected={{eq heuristic.name analysis}}>{{heuristic.name}}</option>
+                                {{/each}}
+                              </optgroup>
+                          {{/each}}
+                        </select>
+                    </div>
+                </td>
+                <td>
+                    <div class="checkbox">
+                        <label>{{input type="checkbox" name="isAdmin" checked=isFinishDateChecked}} Finish Time</label>
+                    </div>
+                  {{#if isFinishDateChecked}}
+
+                      <div class="form-group">
+                        {{input type="text" class="form-control" id="form-finished-time-begin-date" name="finished-time-begin-date" placeholder="From: mm/dd/yyyy" valueBinding=finishTimeBegin}}
+                          <input type="hidden" id="form-finished-time-begin" name="finished-time-begin" value="" />
+                      </div>
+                      <div class="form-group">
+                        {{input type="text" class="form-control" id="form-finished-time-end-date" name="finished-time-end-date" placeholder="To: mm/dd/yyyy" valueBinding=finishTimeEnd}}
+                          <input type="hidden" id="form-finished-time-end" name="finished-time-end" value="" />
+                      </div>
+                  {{else}}
+                      <div class="form-group">
+                        {{input type="text" class="form-control" id="form-finished-time-begin-date" name="finished-time-begin-date" placeholder="From: mm/dd/yyyy" readonly="readonly" valueBinding=finishTimeBegin }}
+                          <input type="hidden" id="form-finished-time-begin" name="finished-time-begin" value="" />
+                      </div>
+                      <div class="form-group">
+                        {{input type="text" class="form-control" id="form-finished-time-end-date" name="finished-time-end-date" placeholder="To: mm/dd/yyyy" readonly="readonly" valueBinding=finishTimeEnd}}
+                          <input type="hidden" id="form-finished-time-end" name="finished-time-end" value="" />
+                      </div>
+                  {{/if}}
+                </td>
+                <td>
+
+                    <button class="btn btn-default" id="submit-button" action="search">Search</button>
+                </td>
+            </tr>
+            <tr>
+
+            </tr>
+        </table>
+        <!--Job Type filter-->
+        <div>
+
+        </div>
+    </form>
+      </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div class="shadow summary-list-container">
+        <div  class="summary-list-header">Jobs</div>
+      {{application-list applications=model.summaries.summaries}}
+    </div>
+    <nav aria-label="Page navigation">
+    <ul class="pagination">
+      {{#each (getPages model.summaries.total) as |page|}}
+          <li class="page-item"><a class="page-link" {{action 'loadPage' page.number}}>{{page.number}}</a></li>
+      {{/each}}
+    </ul>
+        </nav>
+</div>
+
+
+
+
+
