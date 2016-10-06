@@ -16,11 +16,6 @@ Router.map(function () {
   this.route('job');
   this.route('app');
   this.route('search');
-  this.route('job-history', function () {
-    this.route('heuristics');
-    this.route('time');
-  });
-  this.route('flow-history');
 });
 
 export default Router;

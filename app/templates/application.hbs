@@ -1,5 +1,8 @@
 <style type="text/css">
-    body { background: #E7E9EC !important; } /* Adding !important forces the browser to overwrite the default style applied by Bootstrap */
+    body {
+        background: #E7E9EC !important;
+    }
+    /* Adding !important forces the browser to overwrite the default style applied by Bootstrap */
 </style>
 
 <div class="navbar-default navbar-inverse navbar-static-top" role="navigation">
@@ -16,8 +19,6 @@
           {{#link-to "dashboard.workflow" class="navbar-brand"}}
               Dr Elephant
           {{/link-to}}
-
-
         </div>
 
         <div class="navbar-collapse collapse" style="float: left">
@@ -27,21 +28,13 @@
                 <li><a href="../newflowhistory">FlowHistory</a></li>
                 <li><a href="../heuristic-help">Help</a></li>
             </ul>
-
-
         </div>
 
         <div>
           {{search-panel}}
         </div>
 
-
-
-
     </div>
-
 </div>
-
-
 
 {{outlet}}

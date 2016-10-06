@@ -2,25 +2,25 @@
 
 <div class="container" role="main">
 
-      <table class="dashboard-header">
-          <tr>
+    <table class="dashboard-header">
+        <tr>
 
-              <td class="logo">
-                  <img src='assets/images/logo.png'>
+            <td class="logo">
+                <img src='assets/images/logo.png'>
 
-              </td>
-              <td>
-                  <div class="bubble">
-                      <h3>Hello there, I've been busy!</h3>
+            </td>
+            <td>
+                <div class="bubble">
+                    <h3>Hello there, I've been busy!</h3>
 
-                      <p>I looked through <b>150</b> jobs today.<br>
-                          About <b>70</b> of them could use some tuning.<br>
-                          About <b>40</b> of them need some serious attention!
-                      </p>
-                  </div>
-              </td>
-          </tr>
-      </table>
+                    <p>I looked through <b>150</b> jobs today.<br>
+                        About <b>70</b> of them could use some tuning.<br>
+                        About <b>40</b> of them need some serious attention!
+                    </p>
+                </div>
+            </td>
+        </tr>
+    </table>
 
     <div class="menu-workflow">
       {{#link-to "dashboard.workflow" class="btn wf-button" role="tab" data-toggle="tab"}}Workflow{{/link-to}}
@@ -32,6 +32,6 @@
 <br/>
 
 <div class="container">
-<!-- Each sub template will go here -->
-{{outlet defaultUser="defaultUser"}}
+    <!-- Each sub template will go here -->
+  {{outlet defaultUser="defaultUser"}}
 </div>

@@ -1,24 +1,26 @@
 import { moduleForComponent, test } from 'ember-qunit';
 import hbs from 'htmlbars-inline-precompile';
+import Ember from 'ember';
 
 moduleForComponent('user-tabs', 'Integration | Component | user tabs', {
   integration: true
 });
 
 test('it renders', function(assert) {
-  // Set any properties with this.set('myProperty', 'value');
-  // Handle any actions with this.on('myAction', function(val) { ... });
 
+  // single tab with All text when no data is passed
   this.render(hbs`{{user-tabs}}`);
+  assert.equal(this.$().text().trim(), 'All');
 
-  assert.equal(this.$().text().trim(), '');
 
-  // Template block usage:
-  this.render(hbs`
-    {{#user-tabs}}
-      template block text
-    {{/user-tabs}}
-  `);
+  // multiple tabs with id and tabname as the name of the user
+  var usernamesArray = Ember.A(["user1","user2","user3","user4"]);
+  this.set("users", usernamesArray);
+  this.render(hbs`{{user-tabs usernames=users}}`);
 
-  assert.equal(this.$().text().trim(), 'template block text');
+  assert.equal(this.$('#all').text().trim(),'All');
+  assert.equal(this.$('#user1').text().trim(),'user1');
+  assert.equal(this.$('#user2').text().trim(),'user2');
+  assert.equal(this.$('#user3').text().trim(),'user3');
+  assert.equal(this.$('#user4').text().trim(),'user4');
 });

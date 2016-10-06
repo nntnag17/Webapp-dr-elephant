@@ -10,5 +10,6 @@ export default DS.Model.extend({
   resourcewasted: DS.attr("string"),
   severity: DS.attr("string"),
   heuristicsummary: DS.attr(),
+  jobname: DS.attr("string")
 });
 

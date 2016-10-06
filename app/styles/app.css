@@ -1,19 +1,8 @@
-
 .list-group-item {
   border-radius: 0 !important;
-  background: white;
   padding: 10px 10px 10px 10px;
   border: 0px;
-
 }
-
-
-
-.active a.list-group-item { background-color: blue; !important; }
-/**
- * Modify the current navigation bar
- **/
-
 .navbar-default {
   background-color: #ffffff;
   border-color: #e8e8e8;
@@ -54,44 +43,9 @@
 .navbar-default .navbar-toggle:focus {
   background-color: #e8e8e8;
 }
-/*.navbar-default .navbar-toggle .icon-bar {*/
-  /*background-color: #6a7478;*/
-/*}*/
-/*.navbar-default .navbar-collapse,*/
-/*.navbar-default .navbar-form {*/
-  /*border-color: #6a7478;*/
-/*}*/
-/*.navbar-default .navbar-link {*/
-  /*color: #6a7478;*/
-/*}*/
-/*.navbar-default .navbar-link:hover {*/
-  /*color: #0084bf;*/
-/*}*/
-
-/*@media (max-width: 767px) {*/
-  /*.navbar-default .navbar-nav .open .dropdown-menu > li > a {*/
-    /*color: #6a7478;*/
-  /*}*/
-  /*.navbar-default .navbar-nav .open .dropdown-menu > li > a:hover,*/
-  /*.navbar-default .navbar-nav .open .dropdown-menu > li > a:focus {*/
-    /*color: #0084bf;*/
-  /*}*/
-  /*.navbar-default .navbar-nav .open .dropdown-menu > .active > a,*/
-  /*.navbar-default .navbar-nav .open .dropdown-menu > .active > a:hover,*/
-  /*.navbar-default .navbar-nav .open .dropdown-menu > .active > a:focus {*/
-    /*color: #0084bf;*/
-    /*background-color: #e8e8e8;*/
-  /*}*/
-/*}*/
-
 
 /**
-* end of navigation bar css
-*/
-
-
-/**
-* Start of the navigation extension below the navigation bar
+Navigation extension
 **/
 
 .nav-extension {
@@ -105,35 +59,25 @@
   width: 100%;
 }
 
-
 /**
 Dashboard header
 */
-
 .dashboard-header {
-  /*background: white;*/
-  /*color: black;*/
-  /*margin-top: 30px;*/
-  /*padding: 5px 10px 15px 50px;*/
-  /*padding-top: 50px;*/
   color: #707577;
   font-family: 'Shift', sans-serif;
   width: 100%;
   margin-bottom: 20px;
 }
 
+
 /**
  Style for the user tabs
  **/
-
-
-
 .nav-tab {
   padding: 16px 16px 8px;
   margin: 0 16px;
   display: -webkit-box;
   display: -webkit-flex;
-  /*display: -moz-flex;*/
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: center;
@@ -147,6 +91,7 @@ Dashboard header
 .single-tab {
   height: 40px;
 }
+
 /**
 Add shadow to any box
 **/
@@ -166,50 +111,24 @@ Add shadow to any box
 }
 
 /** Dashboard menu **/
-
 .menu-workflow {
   width: 100%;
-  /*padding-right: 0px;*/
 }
 
 .wf-button {
   background-color:white; /* Green */
-  /*border: #0084BF 1px solid;*/
-  /*color: #0084BF;*/
-  /*padding: 6px 15px;*/
-  /*text-align: center;*/
-  /*text-decoration: none;*/
   display: inline-block;
-  /*margin: 4px 2px;*/
   cursor: pointer;
-  /*font-size: 13px;*/
-  /*display: inline-block;*/
   border-radius: 3px;
   font-size: 14px;
   font-weight: 500;
-  /*font-variant: full-width;*/
-  /*margin: 0px;*/
-
-  /*color: #7f8486;*/
-  /*border: 1px #909597 solid;*/
   border: #0084BF 1px solid;
   color: #0084BF;
 }
 
 .wf-button:hover {
-  /*border: #0084BF 1px solid;*/
-  /*color: #0084BF;*/
-  /*box-shadow: none;*/
-
-
   background-color: #008cc9;
   color: white;
-  /*/!*background-color: #5CACD0;*!/*/
-
-
-
-
-
 }
 
 
@@ -218,30 +137,7 @@ Add shadow to any box
   color: white;
   opacity: 0.7;
   border: 1px #008cc9 solid;
-
-  /*background-color: rgba(0, 140, 201, 0.31);*/
-  /*/!*background-color: #5CACD0;*!/*/
-  /*background-color: #008cc9;*/
-  /*color: white;*/
-  /*/!*shadow: none;*!/*/
-  /*border: white 2px solid;*/
-  /*opacity: 0.3;*/
-  /*opacity: 0.3;*/
-  /*border: 1px #008cc9 solid;*/
-  /*font-size: 12px;*/
-  /*opacity: 0.6;*/
-  /*border: white solid 1px;*/
-  /*font-size: 90px;*/
-  /*border: #0084BF 1px solid;*/
-  /*color: #0084BF;*/
-  /*background: white;*/
-  /*shadow: none;*/
-  /*height: 100%;*/
   box-shadow: none;
-  /*background-color: rgb(0, 178, 255);*/
-  /*font-weight: bold;*/
-  /*font-size: 12px;*/
-
 }
 
 
@@ -456,10 +352,8 @@ severity text
 
 .os-percentages li {
   width: 75px;
-  /*border: 1px solid #394264;*/
   border: none;
   text-align: center;
-  /**background: #50597b;**/
 }
 .os {
   margin: 0;
@@ -587,7 +481,7 @@ speech bubble
 
 
 .severity-side-blob-generic {
-  height:100%; width: 3px;
+  height:100%; width: 4px;
 }
 
 .severity-side-blob-success{
@@ -811,11 +705,11 @@ search **/
 }
 
 /*hover/active styles*/
-.breadcrumb2 a.active, .breadcrumb a:hover{
+.breadcrumb2 a.active, .breadcrumb2 a:hover{
   background: #333;
   background: linear-gradient(#333, #000);
 }
-.breadcrumb2 a.active:after, .breadcrumb a:hover:after {
+.breadcrumb2 a.active:after, .breadcrumb2 a:hover:after {
   background: #333;
   background: linear-gradient(135deg, #333, #000);
 }
@@ -853,17 +747,11 @@ search **/
 }
 /*we will use the :before element to show numbers*/
 .breadcrumb2 a:before {
-  /*content: counter(flag);*/
-  /*counter-increment: flag;*/
-  /*some styles now*/
   border-radius: 100%;
-  /*width: 20px;*/
   height: 20px;
   line-height: 20px;
-  /*margin: 8px 0;*/
   position: absolute;
   top: 0;
-  /*left: 30px;*/
   background: #444;
   background: linear-gradient(#444, #222);
   font-weight: bold;
@@ -897,32 +785,48 @@ search **/
 
 .input-user-li {
   height: 40px;
+  height: 100%;
   border-radius: 3px;
   margin-left: 5px;
   border: 1px solid #dfdfdf;
   background: white;
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
-  /*padding-left: 10px;*/
-  /*padding-left: 20px;*/
 }
 
 .input-user {
-  height: 100%;
-  /*border-radius: 3px;*/
-  /*border: 1px solid #0084bf;*/
+  height: 40px;
   border-top-left-radius: 7px;
   border-top-right-radius: 7px;
   border: none;
   padding-left: 20px;
   width: 100px;
+}
 
-  /*padding-left: 10px;*/
-  /*margin-bottom: 2px;*/
-  /*border: 1px solid #dfdfdf;*/
-
+.input-user-button {
+  height: 38px;
+  border: none;
+  color: #0084BF;
+  width: 30px;
+  margin-right: 5px;
+  margin-left: 5px;
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
+  background: white;
+  margin-bottom: 1px;
 }
 .heuristic-item:hover {
   background: grey;
 }
 
+
+.v-separator
+{
+  content: "";
+  display: inline-block;
+  width: 0px;
+  height: 100px;
+  border-right: 1px solid #fafafa;
+  border-left: 1px solid #b4b4b4;
+  padding: 0;
+}

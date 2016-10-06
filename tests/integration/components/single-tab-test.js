@@ -6,19 +6,18 @@ moduleForComponent('single-tab', 'Integration | Component | single tab', {
 });
 
 test('it renders', function(assert) {
-  // Set any properties with this.set('myProperty', 'value');
-  // Handle any actions with this.on('myAction', function(val) { ... });
 
-  this.render(hbs`{{single-tab}}`);
+  this.set("name","user1");
+  this.render(hbs`{{single-tab name=name}}`);
+  assert.equal(this.$().text().trim(), 'user1');
 
+  this.set("name","");
+  this.render(hbs`{{single-tab name=name}}`);
   assert.equal(this.$().text().trim(), '');
 
-  // Template block usage:
-  this.render(hbs`
-    {{#single-tab}}
-      template block text
-    {{/single-tab}}
-  `);
 
-  assert.equal(this.$().text().trim(), 'template block text');
+  this.set("name","all");
+  this.render(hbs`{{single-tab name=name}}`);
+  assert.equal(this.$().text().trim(), 'all');
+
 });

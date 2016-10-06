@@ -6,19 +6,27 @@ moduleForComponent('tasks-severity', 'Integration | Component | tasks severity',
 });
 
 test('it renders', function(assert) {
-  // Set any properties with this.set('myProperty', 'value');
-  // Handle any actions with this.on('myAction', function(val) { ... });
 
-  this.render(hbs`{{tasks-severity}}`);
+  // set task severities here
+  this.set("job", {
+    tasksseverity: [
+      {
+        severity: "Severe",
+        count: 1
+      },
+      {
+        severity: "Critical",
+        count: 5
+      }
+    ]
+  });
+  this.render(hbs`{{tasks-severity job=job}}`);
 
-  assert.equal(this.$().text().trim(), '');
+  assert.equal(this.$().text().trim().split("\n").join("").replace(/ /g,''), '1Severe5Critical');
 
-  // Template block usage:
-  this.render(hbs`
-    {{#tasks-severity}}
-      template block text
-    {{/tasks-severity}}
-  `);
+  this.set("job",{})
+  this.render(hbs`{{tasks-severity job=job}}`);
+  assert.equal(this.$().text().split("\n").join(""),'');
 
-  assert.equal(this.$().text().trim(), 'template block text');
 });
+

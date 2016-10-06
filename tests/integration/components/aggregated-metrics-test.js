@@ -6,19 +6,14 @@ moduleForComponent('aggregated-metrics', 'Integration | Component | aggregated m
 });
 
 test('it renders', function(assert) {
-  // Set any properties with this.set('myProperty', 'value');
-  // Handle any actions with this.on('myAction', function(val) { ... });
 
-  this.render(hbs`{{aggregated-metrics}}`);
+  this.set('application', { resourceused: 1000000000, resourcewasted: 10000000, runtime: 1000000, waittime: 10000});
+  this.render(hbs`{{aggregated-metrics application=application}}`);
 
-  assert.equal(this.$().text().trim(), '');
+  assert.equal(this.$().text().trim().replace(/ /g,'').split("\n").join(""), '271.267GBHours1.00%00:16:401.00%');
 
-  // Template block usage:
-  this.render(hbs`
-    {{#aggregated-metrics}}
-      template block text
-    {{/aggregated-metrics}}
-  `);
+  this.set('application', { resourceused: 2342342342342, resourcewasted: 23423423, runtime:32324320, waittime: 3000});
+  this.render(hbs`{{aggregated-metrics application=application}}`);
 
-  assert.equal(this.$().text().trim(), 'template block text');
+  assert.equal(this.$().text().trim().replace(/ /g,'').split("\n").join(""), "635401.026GBHours0.00%08:58:440.01%");
 });

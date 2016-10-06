@@ -5,20 +5,55 @@ moduleForComponent('heuristics-summary', 'Integration | Component | heuristics s
   integration: true
 });
 
-test('it renders', function(assert) {
-  // Set any properties with this.set('myProperty', 'value');
-  // Handle any actions with this.on('myAction', function(val) { ... });
+test('it renders', function (assert) {
+  this.set("heuristics", [
+    {
+      name: "Mapper Data Skew",
+      severity: "None"
+    },
+    {
+      name: "Mapper GC",
+      severity: "None"
+    },
+    {
+      name: "Mapper Time",
+      severity: "Low"
+    },
+    {
+      name: "Mapper Speed",
+      severity: "Low"
+    },
+    {
+      name: "Mapper Spill",
+      severity: "Low"
+    },
+    {
+      name: "Mapper Memory",
+      severity: "None"
+    },
+    {
+      name: "Reducer Data Skew",
+      severity: "None"
+    },
+    {
+      name: "Reducer GC",
+      severity: "Low"
+    },
+    {
+      name: "Reducer Time",
+      severity: "Low"
+    },
+    {
+      name: "Reducer Memory",
+      severity: "None"
+    },
+    {
+      name: "Shuffle & Sort",
+      severity: "Low"
+    }
+  ]);
+  this.render(hbs`{{heuristics-summary heuristics=heuristics}}`);
 
-  this.render(hbs`{{heuristics-summary}}`);
+  assert.equal(this.$().text().trim().split("\n").join("").replace(/ /g, ''), 'MapperDataSkewMapperGCMapperTimeMapperSpeedMapperSpillMapperMemoryReducerDataSkewReducerGCReducerTimeReducerMemoryShuffle&Sort');
 
-  assert.equal(this.$().text().trim(), '');
-
-  // Template block usage:
-  this.render(hbs`
-    {{#heuristics-summary}}
-      template block text
-    {{/heuristics-summary}}
-  `);
-
-  assert.equal(this.$().text().trim(), 'template block text');
 });

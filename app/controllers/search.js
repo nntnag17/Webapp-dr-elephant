@@ -18,6 +18,26 @@ export default Ember.Controller.extend({
   pages: [],
   applicationType: "Workflow",
   actions: {
+    enableJobType: function() {
+      console.log("enable job type");
+      if(!this.get("isJobTypeChecked")) {
+        this.set("jobType",null);
+      }
+    },
+    enableFinishDate: function() {
+      console.log("enable date");
+      if(!this.get("isFinishDateChecked")) {
+        this.set("finishTimeBegin",null);
+        this.set("finishTimeEnd",null);
+      }
+    },
+    enableSeverity: function() {
+      console.log("enable severity");
+      if(!this.get("isSeverityChecked")) {
+        this.set("severity",null);
+        this.set("analysis",null);
+      }
+    },
     selectHeuristic: function(heuristic) {
       console.log(heuristic);
       this.set("analysis",heuristic);

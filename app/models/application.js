@@ -11,10 +11,11 @@ export default DS.Model.extend({
   resourceused: DS.attr('string'),
   resourcewasted: DS.attr('string'),
   severity: DS.attr('string'),
-  jobtracker: DS.attr('string'),
+  trackingurl : DS.attr('string'),
   jobexecid: DS.attr('string'),
   jobdefid: DS.attr('string'),
   flowexecid: DS.attr('string'),
   flowdefid: DS.attr('string'),
-  yarnappheuristicresults: DS.attr()
+  yarnappheuristicresults: DS.attr(),
+  queue: DS.attr("string")
 });

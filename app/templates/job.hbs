@@ -9,65 +9,65 @@
     </div>
 
     <div class="shadow details-container box">
-        <div class="ribbon-general ribbon-{{getColorForSeverity model.severity}}" ><span>{{model.severity}}</span></div>
+        <div class="ribbon-general ribbon-{{getColorForSeverity model.severity}}"><span>{{model.severity}}</span></div>
         <h4>{{model.jobname}}</h4>
         <hr class="horizontal-line"/>
         <table class="info borderless">
 
 
-
             <tbody>
             <tr>
                 <td>User</td>
-                <td>{{model.username}}</td>
+                <td  id="job_user">{{model.username}}</td>
+            </tr>
+            <tr>
+                <td>Queue</td>
+                <td  id="job_queue">{{model.queue}}</td>
             </tr>
             <tr>
                 <td>Jobtype</td>
-                <td>{{model.jobtype}}</td>
-            </tr>
-            <tr>
-                <td>Job Execution:</td>
-                <td><a href="{{model.jobexecid}}">{{model.jobexecid}}</a></td>
-            </tr>
-            <tr>
-                <td>Job Definition</td>
-                <td><a href="{{model.jobdefid}}">{{model.jobdefid}}</a></td>
-            </tr>
-            <tr>
-                <td>Flow execution:</td>
-                <td><a href="{{model.flowexecid}}">{{model.flowexecid}}</a></td>
-            </tr>
-            <tr>
-                <td>Flow definition:</td>
-                <td><a href={{model.flowdefid}}>{{model.flowdefid}}</a></td>
+                <td  id="job_type">{{model.jobtype}}</td>
             </tr>
             <tr>
                 <td>Start time:</td>
-                <td>{{model.starttime}}</td>
+                <td  id="job_start_time">{{model.starttime}}</td>
             </tr>
             <tr>
                 <td>End time:</td>
-                <td>{{model.finishtime}}</td>
-            </tr>
-            <tr>
-                <td><a href="/newflowhistory?flow-def-id={{urlEncode model.flowdefid}}&select-graph-type=heuristics"><span class="glyphicon glyphicon-stats"> FlowHistory</span></a></td>
-            </tr>
-            <tr>
-                <td><a href="/newjobhistory?job-def-id={{urlEncode model.jobdefid}}&select-graph-type=heuristics"><span class="glyphicon glyphicon-stats"> JobHistory</span></a></td>
+                <td  id="job_end_time">{{model.finishtime}}</td>
             </tr>
             </tbody>
         </table>
-        <br/>
+        <table class="info borderless">
+            <tr>
+                <td><a id="job_flow_history" class="btn"
+                       href="/newflowhistory?flow-def-id={{urlEncode model.flowdefid}}&select-graph-type=heuristics"><span
+                        class="glyphicon glyphicon-stats"></span> FlowHistory</a></td>
+                <td><a id="job_flow_def_id" class="btn" href={{model.flowdefid}}><span class="glyphicon glyphicon-info-sign"></span> Flow
+                    definition</a></td>
+                <td><a id = "job_flow_exec_id" class="btn" href="{{model.flowexecid}}"><span class="glyphicon glyphicon-cog"></span> Flow
+                    execution</a></td>
+            </tr>
+            <tr>
+                <td><a id="job_job_history" class="btn"
+                       href="/newjobhistory?job-def-id={{urlEncode model.jobdefid}}&select-graph-type=heuristics"><span
+                        class="glyphicon glyphicon-stats"></span> JobHistory</a></td>
+                <td><a id="job_job_def_id" class="btn" href="{{model.jobdefid}}"><span class="glyphicon glyphicon-info-sign"></span> Job
+                    definition</a></td>
+                <td><a id="job_job_exec_id" class="btn" href="{{model.jobexecid}}"><span class="glyphicon glyphicon-cog"></span> Job
+                    execution</a></td>
+            </tr>
+        </table>
         <table class="info borderless">
             <tbody>
 
             <tr>
-                <td>
+                <td id="job_task_severity">
                   {{tasks-severity job=model}}
                 </td>
             </tr>
             <tr>
-                <td>
+                <td id="job_aggregated_metrics">
                   {{aggregated-metrics application=model}}
                 </td>
             </tr>
@@ -76,9 +76,9 @@
     </div>
 
     <div class="shadow summary-list-container">
-        <div  class="summary-list-header">Applications</div>
+        <div class="summary-list-header">Applications</div>
 
-  {{application-list applications=model.taskssummaries}}
-        </div>
+      {{application-list applications=model.taskssummaries}}
+    </div>
 
 </div>

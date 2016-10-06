@@ -16,5 +16,6 @@ export default DS.Model.extend({
   flowexecid: DS.attr("string"),
   flowdefid: DS.attr("string"),
   taskssummaries: DS.attr(),
-  tasksseverity: DS.attr()
+  tasksseverity: DS.attr(),
+  queue: DS.attr("string")
 });

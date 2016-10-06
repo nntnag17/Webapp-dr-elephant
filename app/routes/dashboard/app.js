@@ -8,10 +8,8 @@ export default Ember.Route.extend({
     this.set('usernames',users.getUsernames());
   },
   model(){
-
     return Ember.RSVP.hash({
       usernames: new Users().getUsernames(),
-      //applications: this.store.query('application-summary', {username: new Users().getActiveUser()})
       applications: {}
     });
   },

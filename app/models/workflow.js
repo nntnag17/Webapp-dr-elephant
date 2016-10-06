@@ -12,5 +12,6 @@ export default DS.Model.extend({
   flowexecid: DS.attr("string"),
   flowdefid: DS.attr("string"),
   jobssummaries: DS.attr(),
-  jobsseverity: DS.attr()
+  jobsseverity: DS.attr(),
+  queue: DS.attr("string")
 });

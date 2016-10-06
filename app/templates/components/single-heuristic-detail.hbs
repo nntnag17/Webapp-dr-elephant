@@ -1,28 +1,15 @@
 <div>
-    <a href="../heuristic-help" class="list-group-item">
-    <div class="box details-container">
-
-
-
+    <a href="../heuristic-help?topic={{urlEncode yarnappheuristicresult.name}}" class="list-group-item shadow">
+    <div>
         <table class="app-summary-table">
             <tr>
-               {{!-- <td class="severity-side-blob-generic severity-side-blob-{{getColorForSeverity yarnappheuristicresult.severity}}">
-
-                </td>--}}
                 <td>
-                    {{!--<div style="width: 100%; border: 1px solid {{getActualColorForSeverity yarnappheuristicresult.severity}}">--}}
                         <div style="width: 100%;">
-                    {{!--<a name={{yarnappheuristicresult.name}} class="box list-group-item list-group-item-{{getColorForSeverity yarnappheuristicresult.severity}}"--}}
-
-
                       </div>
                     <table class="list-group-item-text" style="width: 100%; margin: 10px 20px 10px 20px; color: {{getActualColorForSeverity yarnappheuristicresult.severity}}">
                         <thead><tr>
-                            <th colspan="2"><h4 class="list-group-item-heading" style="color: {{getActualColorForSeverity yarnappheuristicresult.severity}}">{{yarnappheuristicresult.name}}</h4></th></tr>
+                            <th colspan="2"><h4 class="list-group-item-heading" style="color: {{getActualColorForSeverity yarnappheuristicresult.severity}}">{{yarnappheuristicresult.name}}</h4><small>Severity: {{yarnappheuristicresult.severity}}</small></th></tr>
                             <tr>
-                            <th colspan="2">
-                                Severity: {{yarnappheuristicresult.severity}}
-                            </th>
                         </tr></thead>
                         <tbody>
                         {{#each yarnappheuristicresult.details as |yarnappheuristicresultdetail|}}
@@ -33,7 +20,6 @@
                         {{/each}}
                         </tbody>
                     </table>
-                    <!--</a>-->
                 </td>
             </tr>
         </table>

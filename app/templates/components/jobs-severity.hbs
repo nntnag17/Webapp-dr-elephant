@@ -1,5 +1,5 @@
-<ul class="os-percentages horizontal-list">
-  {{#each flow.jobsseverity as |severity|}}
+<ul id="job_severities" class="os-percentages horizontal-list">
+  {{#each jobsseverity as |severity|}}
       <li>
           <p class="os-percentage" style="color:{{getColorForSeverity severity.severity}}">{{severity.count}}</p>
           <p class="ios os scnd-font-color severity-{{severity.severity}}">{{severity.severity}}</p>

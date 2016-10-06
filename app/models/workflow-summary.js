@@ -10,4 +10,5 @@ export default DS.Model.extend({
   resourcewasted: DS.attr("string"),
   severity: DS.attr("string"),
   jobsseverity: DS.attr(),
+  queue: DS.attr("string")
 });
