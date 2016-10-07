@@ -9,11 +9,10 @@ export default Dashboard.extend({
     return this.users.getUsernames();
   },
   actions: {
+
+    /** changes tab to the clicked user **/
     changeTab: function (tabname) {
       this.set("loading",true);
-      if(tabname=="*") {
-        tabname = "all";
-      }
       this.users.setActiveUser(tabname);
       var _this = this;
       _this.store.unloadAll();

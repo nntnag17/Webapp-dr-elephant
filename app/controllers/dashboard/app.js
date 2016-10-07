@@ -9,6 +9,8 @@ export default Dashboard.extend({
     return this.users.getUsernames();
   },
   actions: {
+
+    /** changes tab to the clicked user **/
     changeTab: function (tabname) {
       this.set("loading",true);
       this.users.setActiveUser(tabname);
@@ -19,8 +21,6 @@ export default Dashboard.extend({
         _this.set("model.applications", newworkflows);
         _this.set("loading",false);
       });
-    },
-
-
+    }
   }
 });

@@ -1,8 +1,13 @@
 import Ember from 'ember';
 
+/**
+ * Returns the resource after converting to GB Hours
+ * @param params The resource in MB Seconds
+ * @returns Resource in GB Hours
+ */
 export function getResourceInGBHours(params) {
   let [MBSeconds] = params;
-  if (MBSeconds == 0) {
+  if (MBSeconds === 0) {
     return "0 GB Hours";
   }
 

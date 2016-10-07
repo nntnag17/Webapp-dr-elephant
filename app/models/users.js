@@ -5,57 +5,76 @@ import Ember from 'ember';
  */
 export default Ember.Object.extend({
 
+  /**
+   * Sets the active user to user
+   */
   setActiveUser: function(user) {
     localStorage.setItem('active-user',user);
   },
+
+  /**
+   * Returns the current active user from store
+   */
   getActiveUser: function() {
     if(localStorage.getItem("active-user")=="null") {
       return null;
     }
     return localStorage.getItem("active-user");
   },
+
+  /**
+   * Returns all the stored usernames
+   */
   getUsernames: function () {
 
     var usernamesString = localStorage.getItem('dr-elephant-users');
-    if(usernamesString == null || usernamesString=="") {
+    if(usernamesString == null || usernamesString==="") {
       return Ember.A([]);
     }
-
-    console.log(usernamesString.split(",").toString());
-
     var usernamesArray = Ember.A([]);
     usernamesArray.pushObjects(usernamesString.split(","));
     return usernamesArray;
   },
+
+  /**
+   * Stores the usernames
+   */
   storeUsernames: function () {
-    console.log("usernames array" + this.usernames.toString());
     var usernamesString = this.usernames.join(",");
-    console.log("usernames string" + usernamesString);
     localStorage.setItem('dr-elephant-users', usernamesString);
   },
+
+  /**
+   * Adds a new user to the localstore
+   */
   addToUsername: function (user) {
     var userNames = this.getUsernames();
     if(!userNames.contains(user)) {
       userNames.pushObject(user);
     }
     var usernamesString  = userNames.join(",");
-    console.log("usernamesString" + usernamesString);
     localStorage.setItem('dr-elephant-users',usernamesString);
   },
+
+  /**
+   * Deletes a username from the store
+   */
   deleteUsername: function(user) {
     var userNames = this.getUsernames();
     if(userNames.contains(user)) {
       userNames.removeObject(user);
     }
     var usernamesString  = "";
-    if(userNames.length!=0) {
+    if(userNames.length!==0) {
       usernamesString  = userNames.join(",");
     }
-    console.log("usernamesString = " + usernamesString);
     localStorage.setItem('dr-elephant-users',usernamesString);
   },
+
+  /**
+   * Clears the local storage
+   */
   clearStorage: function () {
-    // pseudo implementation
     localStorage.clear();
   }
 });

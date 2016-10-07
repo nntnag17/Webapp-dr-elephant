@@ -1,6 +1,6 @@
 <table class="app-summary-table box shadow">
     <tr>
-        <td class="severity-side-blob-generic severity-side-blob-{{getColorForSeverity application.severity}}">
+        <td class="severity-side-blob-generic severity-side-blob-{{getBootstrapSeverityCode application.severity}}">
         </td>
         <td>
           {{#link-to "app" (query-params applicationid=application.id) class="list-group-item list-group-item-control"}}
@@ -8,7 +8,7 @@
               <table class="app-header">
                   <tr>
                       <td class="heading" id="app_summary_id">
-                          {{#if (eq application.jobname null)}}
+                        {{#if (eq application.jobname null)}}
                             {{application.id}}
                           {{else}}
                             {{application.jobname}} <span class="glyphicon glyphicon-chevron-right"></span> {{application.id}}

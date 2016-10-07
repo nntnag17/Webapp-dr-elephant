@@ -3,8 +3,19 @@ import { module, test } from 'qunit';
 
 module('Unit | Helper | eq');
 
-// Replace this with your real tests.
 test('it works', function(assert) {
-  let result = eq([42]);
+  let result = eq([100,100]);
   assert.ok(result);
+  result = eq([10,100]);
+  assert.ok(!result);
+  result = eq(["100","100"]);
+  assert.ok(result);
+  result = eq(["100","10"]);
+  assert.ok(!result);
+  result = eq(["100",100]);
+  assert.ok(!result);
+  result = eq([100.00,100.00]);
+  assert.ok(result);
+  result = eq([100.0,100.1]);
+  assert.ok(!result);
 });

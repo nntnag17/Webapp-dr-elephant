@@ -4,17 +4,16 @@
         <table class="app-summary-table">
             <tr>
                 <td>
-                        <div style="width: 100%;">
-                      </div>
-                    <table class="list-group-item-text" style="width: 100%; margin: 10px 20px 10px 20px; color: {{getActualColorForSeverity yarnappheuristicresult.severity}}">
+
+                    <table class="list-group-item-text heuristic-detail-table" style="color: {{getColorForSeverity yarnappheuristicresult.severity}}">
                         <thead><tr>
-                            <th colspan="2"><h4 class="list-group-item-heading" style="color: {{getActualColorForSeverity yarnappheuristicresult.severity}}">{{yarnappheuristicresult.name}}</h4><small>Severity: {{yarnappheuristicresult.severity}}</small></th></tr>
+                            <th colspan="2"><h4 class="list-group-item-heading" style="color:{{getColorForSeverity yarnappheuristicresult.severity}}">{{yarnappheuristicresult.name}}</h4><small>Severity: {{yarnappheuristicresult.severity}}</small></th></tr>
                             <tr>
                         </tr></thead>
                         <tbody>
                         {{#each yarnappheuristicresult.details as |yarnappheuristicresultdetail|}}
                             <tr>
-                                <td style="width: 50%">{{yarnappheuristicresultdetail.name}}</td>
+                                <td>{{yarnappheuristicresultdetail.name}}</td>
                                 <td>{{yarnappheuristicresultdetail.value}}</td>
                             </tr>
                         {{/each}}

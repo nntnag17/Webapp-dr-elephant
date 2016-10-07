@@ -1,8 +1,13 @@
 import Ember from 'ember';
 
+/**
+ * Calculates the percentage given two params
+ * @param params The arguments for percentage
+ * @returns The percentage in the form PP.PP%
+ */
 export function getPercentage(params) {
   let [arg1, arg2] = params;
-  if(arg2==0) {
+  if(arg2===0) {
     return "0%";
   }
 

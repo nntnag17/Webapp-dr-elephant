@@ -1,13 +1,13 @@
 <table class="app-summary-table box shadow ">
     <tr>
-        <td class="severity-side-blob-generic severity-side-blob-{{getColorForSeverity job.severity}}">
+        <td class="severity-side-blob-generic severity-side-blob-{{getBootstrapSeverityCode job.severity}}">
         </td>
         <td>
           {{#link-to "job" (query-params jobid=job.id) class="list-group-item"}}
 
               <table class="app-header">
                   <tr>
-                      <td class="heading" id="job_name">
+                      <td class="heading">
                         {{job.jobname}}
                       </td>
                       <td class="user" id="job_summary_username"><span

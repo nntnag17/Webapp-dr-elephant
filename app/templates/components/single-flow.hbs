@@ -1,6 +1,6 @@
 <table class="app-summary-table box shadow">
     <tr>
-        <td class="severity-side-blob-generic severity-side-blob-{{getColorForSeverity flow.severity}}">
+        <td class="severity-side-blob-generic severity-side-blob-{{getBootstrapSeverityCode flow.severity}}">
         </td>
         <td>
           {{#link-to "workflow" (query-params workflowid=flow.id) class="list-group-item list-group-item-control"}}

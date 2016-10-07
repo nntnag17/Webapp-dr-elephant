@@ -1,5 +1,10 @@
 import Ember from 'ember';
 
+/**
+ * Encodes a url
+ * @param params The url to encode
+ * @returns The encoded url
+ */
 export function urlEncode(params/*, hash*/) {
   let [uri] = params;
   return encodeURIComponent(uri);

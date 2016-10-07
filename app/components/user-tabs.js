@@ -22,6 +22,7 @@ export default Ember.Component.extend({
       this.sendAction('deleteTab', tabname);
     },
 
+    /** brings focus to the input box **/
     showInput: function() {
       console.log("clicked");
       Ember.$("#user-input").attr("type","text");

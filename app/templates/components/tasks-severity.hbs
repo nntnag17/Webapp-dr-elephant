@@ -1,7 +1,7 @@
 <ul class="os-percentages horizontal-list">
   {{#each job.tasksseverity as |severity|}}
       <li>
-          <p class="os-percentage" style="color:{{getColorForSeverity severity.severity}}">{{severity.count}}</p>
+          <p class="os-percentage" style="color:{{getBootstrapSeverityCode severity.severity}}">{{severity.count}}</p>
           <p class="ios os scnd-font-color severity-{{severity.severity}}">{{severity.severity}}</p>
       </li>
   {{/each}}

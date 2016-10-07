@@ -2,7 +2,6 @@ import Ember from 'ember';
 
 export default Ember.Route.extend({
   beforeModel: function(transition){
-    console.log(transition.queryParams.jobid);
     this.jobid = transition.queryParams.jobid;
   },
   model(){

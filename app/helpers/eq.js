@@ -1,8 +1,12 @@
 import Ember from 'ember';
 
-export function eq(params/*, hash*/) {
-  let[first,second] = params;
-  if(first==second) {
+/**
+ * helper takes two parameters and returns true if both are equal else returns false
+ * @param params The parameters for the helper
+ * @returns {boolean}
+ */
+export function eq(params) {
+  if(params[0]===params[1]) {
     return true;
   }
   return false;

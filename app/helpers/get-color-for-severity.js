@@ -1,24 +1,26 @@
 import Ember from 'ember';
 
+/**
+ * Returns the color based on the severity
+ * @param params The severity value
+ * @returns The color based on the serverity
+ */
 export function getColorForSeverity(params) {
   let [severity] = params;
-  if(severity==null) {
-    return "success";
-  }
   severity = severity.toLowerCase();
   switch(severity) {
     case "critical":
-      return "danger";
+      return "#D9534F";
     case "severe":
-      return "severe";
+      return "#E4804E";
     case "moderate":
-      return "warning";
+      return "#F0AD4E";
     case "low":
-      return "success";
+      return "#5CB85C";
     case "none":
-      return "success";
+      return "#5CB85C";
   }
-  return "success";
+  return "blue";
 }
 
 export default Ember.Helper.helper(getColorForSeverity);

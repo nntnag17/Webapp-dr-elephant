@@ -3,8 +3,16 @@ import { module, test } from 'qunit';
 
 module('Unit | Helper | get color for severity');
 
-// Replace this with your real tests.
 test('it works', function(assert) {
-  let result = getColorForSeverity([42]);
-  assert.ok(result);
+  let result = getColorForSeverity(["critical"]);
+  assert.equal(result,"#D9534F");
+  result = getColorForSeverity(["severe"]);
+  assert.equal(result,"#E4804E");
+  result = getColorForSeverity(["moderate"]);
+  assert.equal(result,"#F0AD4E");
+  result = getColorForSeverity(["low"]);
+  assert.equal(result,"#5CB85C");
+  result = getColorForSeverity(["none"]);
+  assert.equal(result,"#5CB85C");
 });
+

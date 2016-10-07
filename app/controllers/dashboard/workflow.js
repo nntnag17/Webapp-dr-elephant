@@ -9,6 +9,8 @@ export default Dashboard.extend({
     return this.users.getUsernames();
   },
   actions: {
+
+    /** change tab to the clicked user **/
     changeTab: function (tabname) {
       this.set("loading",true);
       this.users.setActiveUser(tabname);
